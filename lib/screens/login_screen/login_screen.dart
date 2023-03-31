@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wingman_assignment/core/constants.dart';
-import 'package:wingman_assignment/view/home_screen/home_screen.dart';
+import 'package:wingman_assignment/screens/home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

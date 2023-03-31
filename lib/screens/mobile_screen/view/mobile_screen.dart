@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wingman_assignment/core/constants.dart';
-import 'package:wingman_assignment/view/otp_screen/otp_screen.dart';
+import 'package:wingman_assignment/screens/mobile_screen/controller/mobile_provider.dart';
 
 class MobileScreen extends StatelessWidget {
   const MobileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MobileProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -16,6 +18,7 @@ class MobileScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                controller: provider.mobileController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -29,11 +32,7 @@ class MobileScreen extends StatelessWidget {
               kHeight10,
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const OtpScreen(),
-                    ),
-                  );
+                  provider.mobileApiCall(context);
                 },
                 child: const Text('Continue'),
               ),
