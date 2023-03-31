@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wingman_assignment/core/constants.dart';
+import 'package:wingman_assignment/view/home_screen/home_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   filled: true,
                   hintStyle: TextStyle(color: Colors.grey[800]),
-                  hintText: "Email",
+                  hintText: "Name",
                   fillColor: Colors.white70,
                 ),
               ),
@@ -37,9 +39,20 @@ class HomeScreen extends StatelessWidget {
                   ),
                   filled: true,
                   hintStyle: TextStyle(color: Colors.grey[800]),
-                  hintText: "Password",
+                  hintText: "Email",
                   fillColor: Colors.white70,
                 ),
+              ),
+              kHeight10,
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                },
+                child: const Text('Submit'),
               ),
             ],
           ),
