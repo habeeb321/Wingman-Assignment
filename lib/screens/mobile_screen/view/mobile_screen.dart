@@ -30,11 +30,15 @@ class MobileScreen extends StatelessWidget {
                 ),
               ),
               kHeight10,
-              ElevatedButton(
-                onPressed: () {
-                  provider.mobileApiCall(context);
+              Consumer<MobileProvider>(
+                builder: (context, value, child) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      value.mobileApiCall(context);
+                    },
+                    child: const Text('Continue'),
+                  );
                 },
-                child: const Text('Continue'),
               ),
             ],
           ),
