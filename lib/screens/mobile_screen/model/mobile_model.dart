@@ -11,16 +11,24 @@ String mobileModelToJson(MobileModel data) => json.encode(data.toJson());
 
 class MobileModel {
   MobileModel({
-    required this.mobile,
+    required this.status,
+    required this.response,
+    required this.requestId,
   });
 
-  String mobile;
+  bool status;
+  String response;
+  String requestId;
 
   factory MobileModel.fromJson(Map<String, dynamic> json) => MobileModel(
-        mobile: json["mobile"],
+        status: json["status"],
+        response: json["response"],
+        requestId: json["request_id"],
       );
 
   Map<String, dynamic> toJson() => {
-        "mobile": mobile,
+        "status": status,
+        "response": response,
+        "request_id": requestId,
       };
 }
